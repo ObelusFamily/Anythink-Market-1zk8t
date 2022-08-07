@@ -9,7 +9,8 @@ Please find more info about each part in the relevant Readme file ([frontend](fr
 When implementing a new feature or fixing a bug, please create a new pull request against `main` from a feature/bug branch and add `@vanessa-cooper` as reviewer.
 
 ## First setup
-
+**[TODO 07/08/2022 @vanessa-cooper]:** To setup the environment we need to clone the repository and install docker on your local machine.
+To install docker on the Ubuntu steps are mentioned below. If you have any other platform please refer docker documentation https://docs.docker.com/engine/install/   as per your system (like: Mac, Windows , Linux ).
 ### Clone repository
 
     $ git clone https://github.com/ObelusFamily/Anythink-Market-1zk8t.git
