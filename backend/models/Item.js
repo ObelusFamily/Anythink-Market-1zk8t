@@ -24,6 +24,9 @@ ItemSchema.pre("validate", function(next) {
     this.slugify();
   }
 
+  if (this.image === undefined || this.image.length === 0) {
+    this.setDefaultPlaceholderImage();
+  }
   next();
 });
 
@@ -33,6 +36,10 @@ ItemSchema.methods.slugify = function() {
     "-" +
     ((Math.random() * Math.pow(36, 6)) | 0).toString(36);
 };
+
+ItemSchema.methods.setDefaultPlaceholderImage = function() {
+  this.image = '/placeholder.png';
+}
 
 ItemSchema.methods.updateFavoriteCount = function() {
   var item = this;
