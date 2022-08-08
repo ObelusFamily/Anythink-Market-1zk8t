@@ -23,10 +23,19 @@ ItemSchema.pre("validate", function(next) {
   if (!this.slug) {
     this.slugify();
   }
-
+  /**
+   * Fix for #INC-5312:
+   * Added validation on the model itself before the data gets saved into the db.
+   * Checked if the length of the image url is empty then set default placeholder.png
+   */
+  if (this.image.length === 0) {
+    this.setDefaultImageIfEmpty();
+  }
   next();
 });
-
+ItemSchema.methods.setDefaultImageIfEmpty = function() {
+  this.image = '/placeholder.png';
+}
 ItemSchema.methods.slugify = function() {
   this.slug =
     slug(this.title) +
